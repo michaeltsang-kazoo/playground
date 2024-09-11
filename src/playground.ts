@@ -1,3 +1,4 @@
+import { inspect } from "util";
 import { OpenAI } from "openai";
 
 const openai = new OpenAI({
@@ -15,5 +16,5 @@ openai.chat.completions
             },
         ],
     })
-    .then((response) => console.log(response))
+    .then((response) => console.log(inspect(response, true, null, true)))
     .catch((error) => console.error(error));
