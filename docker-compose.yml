@@ -1,0 +1,13 @@
+version: "3"
+services:
+    hku-game-cms-postgres:
+        image: "postgres:14.1" # use 14.1 official postgres version
+        restart: always
+        ports:
+            - "5433:5432"
+        expose:
+            - "5432"
+        environment:
+            - POSTGRES_HOST_AUTH_METHOD=trust
+        volumes:
+            - ./data:/var/lib/postgresql/data/ # persist data even if container shuts down
